@@ -1,0 +1,208 @@
+---
+title: "class06"
+author: "Hailey Heirigs (PID: A16962278)"
+format: pdf
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+
+```{r}
+add <- function(x, y){
+  x+y
+}
+```
+
+
+I can just use this function like any other function as long as R knows about it (i.e. run the code chunk)
+
+```{r}
+add(1, 100)
+```
+
+## 1. R functions
+
+Every R function has 3 things. 
+- name (we get to pick this)
+- input arguments 
+- the body 
+
+```{r}
+add <- function(x, y=10, z=0){
+  x+y+z
+}
+```
+
+```{r}
+add(1)
+```
+
+Functions can have "required" input arguments and "optional" input arguments. The optional arguments are defined with an equals default value (`y=10`) in the function definition. 
+
+```{r}
+add(x=1, y=100, z=10)
+```
+
+> Q. Write a function to return a DNA sequence of a user specified length? Call it `generate_dna()` 
+
+The `sample()` function can help here
+```{r}
+#generate_dna <- function(size=5) { }
+
+students <- c("jeff", "jeremy", "peter")
+
+sample(students, size = 5, replace=TRUE)
+```
+
+## 2. Generate DNA sequences
+
+Now work with `bases` rather than `students` 
+
+```{r}
+bases <- c("A", "C", "G", "T")
+
+sample(bases, size = 10, replace = TRUE)
+```
+
+Now I have a working snippet of code & the body of my first function is here. 
+
+```{r}
+generate_dna <- function(size=5) {
+  bases <- c("A", "C", "G", "T")
+  sample(bases, size=size, replace=TRUE)
+}
+```
+
+```{r}
+generate_dna(100)
+```
+
+```{r}
+generate_dna()
+```
+
+I want the ability to return a sequence like "AGTACCTG" i.e. a one element vector where the bases are all together. 
+
+```{r}
+generate_dna <- function(size=5, together=TRUE) {
+  bases <- c("A", "C", "G", "T")
+  sequence <- sample(bases, size=size, replace=TRUE)
+  if(together) {
+    sequence <- paste(sequence, collapse = "")
+  }
+  return(sequence)
+}
+```
+
+```{r}
+generate_dna()
+```
+
+```{r}
+generate_dna(together=FALSE)
+```
+
+## 3. Generate Protein function
+
+> Q. Write a protein sequence generating function that will return sequences of a user specified length? 
+
+We can get the set of 20 natural amino-acids from the **bio3d** package. 
+
+```{r}
+aa <- bio3d::aa.table$aa1[1:20]
+```
+
+```{r}
+aa
+```
+
+and use this in our function
+
+```{r}
+generate_protein <- function(size=6, together=TRUE) {
+  ## Get the 20 amino-acids as a vector
+  aa <- bio3d::aa.table$aa1[1:20]
+  sequence <- sample(aa, size, replace=TRUE)
+  
+  ## Optionally return a single element string 
+  if(together){
+    sequence <- paste(sequence, collapse = "")
+  }
+  return(sequence)
+}
+```
+
+> Q. Generate random protein sequences of length 6 to 12 amino acids.
+
+```{r}
+generate_protein(7)
+generate_protein(8)
+generate_protein(9)
+```
+
+
+We can fix this inability to generate multiple sequences by either editing and adding to the function body code (e.g. a for loop) or by using the R **apply** family of utility functions. 
+
+```{r}
+sapply(6:12, generate_protein)
+```
+
+> Q. Determine if these sequences can be found in nature or are they unique? Why or why not? 
+
+It would be cool and useful if I could get FASTA format output
+
+```{r}
+ans <- sapply(6:12, generate_protein)
+ans
+```
+
+```{r}
+cat(ans, sep="\n")
+```
+I want this to look like
+
+```
+>ID.6
+QCRAWKLHID
+>ID.7
+TYNVGCMDFNT
+>ID.8
+EVLPAFWHLWIV
+```
+
+The functions `paste()` and cat()` can help us here... 
+
+```{r}
+ans2 <-paste(">ID.", 7:12, "\n",ans, sep="")
+cat(ans2, sep = "\n")
+```
+
+> Q. Determine if these sequences can be found in nature or are they unique? Why or why not? 
+
+I BLASTp searched my FASTA format sequences against NR and found that lengths 6, 7, 8, are not unique and can be found in the databases with 100% coverage and 100% identity. 
+
+Random sequences of length 9 and above are unique and can't be found in the databases. 
+
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+1+1
+```
