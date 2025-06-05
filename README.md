@@ -10,3 +10,28 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
 - 07 [Machine Learning 1](https://github.com/haileyheirigs/bimm143_github/blob/main/class07/class07.md)
 
 - 08 [Breast cancer mini project](https://github.com/haileyheirigs/bimm143_github/blob/main/class08/Class%208-%20Breast%20Cancer%20mini%20project.md)
+
+- 09 [Halloween Candy Mini-Project]
+
+- 10 [Structural Bioinformatics, pt1]
+ 
+- 11 [Structural Bioinformatics, pt2. Focus on new AlphaFold2]
+
+- 12 [Genome informatics]
+
+- 13 [Transcriptomics and the analysis of RNA-Seq data]
+
+- 14 [RNA-Seq analysis mini-project]
+
+- 15 [Hands-on with Git and GitHub]
+
+- 16 [Essential UNIX for bioinformatics]
+
+- 17 [Analyzing sequencing data in the cloud]
+
+- 18 [Mini Project: Investigating Pertussis Resurgence]
+
+- 19 [Mini Project: Cancer Mutation Analysis]
+
+
+
