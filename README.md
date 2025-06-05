@@ -13,7 +13,7 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
 
 - 09 [Halloween Candy Mini-Project](https://github.com/haileyheirigs/bimm143_github/blob/main/class09/HalloweenCandyminiproj.md)
 
-- 10 [Structural Bioinformatics, pt1]
+- 10 [Structural Bioinformatics, pt1](https://github.com/haileyheirigs/bimm143_github/blob/main/class10/Class10.md)
  
 - 11 [Structural Bioinformatics, pt2. Focus on new AlphaFold2]
 
