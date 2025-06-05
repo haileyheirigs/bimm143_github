@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hailey Heirigs (PID: A16962278)">
+
+<title>Find a Gene custom project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Find a Gene_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Find a Gene_files/libs/quarto-html/quarto.js"></script>
+<script src="Find a Gene_files/libs/quarto-html/popper.min.js"></script>
+<script src="Find a Gene_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Find a Gene_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Find a Gene_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Find a Gene_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Find a Gene_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Find a Gene_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Find a Gene_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="Find a Gene_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="Find a Gene_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="Find a Gene_files/libs/NGLVieweR-2.0.0/./lib/NGL-2.0.0/ngl.js"></script>
+<script src="Find a Gene_files/libs/helperFunctions-1/./lib/helperFunctions.js"></script>
+<script src="Find a Gene_files/libs/NGLVieweR-binding-1.4.0/NGLVieweR.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Find a Gene custom project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hailey Heirigs (PID: A16962278) </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="find-a-gene-homework" class="level2">
+<h2 class="anchored" data-anchor-id="find-a-gene-homework">Find a Gene Homework</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3d)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pth <span class="ot">&lt;-</span> <span class="st">"PersonalFindaGene_e9930/"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pdb.files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> pth, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".pdb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Align and superimpose all these models</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.exists</span>(pdb.files)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pdbs <span class="ot">&lt;-</span> <span class="fu">pdbaln</span>(pdb.files, <span class="at">fit =</span> <span class="cn">TRUE</span>, <span class="at">exefile=</span><span class="st">"msa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading PDB files:
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_003_alphafold2_ptm_model_1_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_004_alphafold2_ptm_model_4_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_005_alphafold2_ptm_model_5_seed_000.pdb
+.....
+
+Extracting sequences
+
+pdb/seq: 1   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb 
+pdb/seq: 2   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb 
+pdb/seq: 3   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_003_alphafold2_ptm_model_1_seed_000.pdb 
+pdb/seq: 4   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_004_alphafold2_ptm_model_4_seed_000.pdb 
+pdb/seq: 5   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_005_alphafold2_ptm_model_5_seed_000.pdb </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3dview)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">view.pdbs</span>(pdbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="NGLVieweR html-widget html-fill-item" id="htmlwidget-0b013d2a5271d957f454" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-0b013d2a5271d957f454">{"x":{"structures":[{"file_ext":"pdb","data":"ATOM      1  CA  ALA A   1     -12.484   8.336   1.381  1.00  0.00              \nATOM      2  CA  SER A   2     -11.266   5.160  -0.008  1.00  0.00              \nATOM      3  CA  LEU A   3      -8.578   2.705   0.135  1.00  0.00              \nATOM      4  CA  PHE A   4      -9.609  -0.954  -0.680  1.00  0.00              \nATOM      5  CA  ILE A   5      -7.094  -3.762  -1.263  1.00  0.00              \nATOM      6  CA  LEU A   6      -8.367  -7.406  -1.929  1.00  0.00              \nATOM      7  CA  ILE A   7      -6.008 -10.219  -2.818  1.00  0.00              \nATOM      8  CA  GLY A   8      -7.055 -13.852  -2.854  1.00  0.00              \nATOM      9  CA  PRO A   9      -5.363 -16.844  -4.586  1.00  0.00              \nATOM     10  CA  LYS A  10      -5.910 -19.016  -7.637  1.00  0.00              \nATOM     11  CA  ALA A  11      -7.445 -18.469 -11.023  1.00  0.00              \nATOM     12  CA  LYS A  12      -5.844 -20.562 -13.688  1.00  0.00              \nATOM     13  CA  ARG A  13      -5.465 -19.125 -17.125  1.00  0.00              \nATOM     14  CA  THR A  14      -8.742 -18.172 -18.828  1.00  0.00              \nATOM     15  CA  ALA A  15     -11.016 -15.367 -19.453  1.00  0.00              \nATOM     16  CA  SER A  16     -11.922 -12.023 -20.344  1.00  0.00              \nATOM     17  CA  GLN A  17     -12.844  -8.703 -19.219  1.00  0.00              \nATOM     18  CA  ASN A  18     -13.477  -7.160 -16.016  1.00  0.00              \nATOM     19  CA  LEU A  19     -10.648  -6.191 -13.656  1.00  0.00              \nATOM     20  CA  SER A  20     -12.203  -3.152 -11.867  1.00  0.00              \nATOM     21  CA  HIS A  21     -10.055   0.134 -12.438  1.00  0.00              \nATOM     22  CA  PHE A  22      -8.367   1.619  -9.320  1.00  0.00              \nATOM     23  CA  MET A  23      -7.852   5.426  -9.555  1.00  0.00              \nATOM     24  CA  PHE A  24      -5.918   7.211  -6.770  1.00  0.00              \nATOM     25  CA  ARG A  25      -6.977  10.734  -7.117  1.00  0.00              \nATOM     26  CA  ASP A  26      -4.547  12.945  -5.336  1.00  0.00              \nATOM     27  CA  LYS A  27      -5.941  16.531  -6.652  1.00  0.00              \nATOM     28  CA  ARG A  28      -2.357  17.078  -7.781  1.00  0.00              \nATOM     29  CA  VAL A  29      -1.365  13.836  -9.516  1.00  0.00              \nATOM     30  CA  ASN A  30      -3.436  11.445 -11.734  1.00  0.00              \nATOM     31  CA  TYR A  31      -1.811   8.023 -11.766  1.00  0.00              \nATOM     32  CA  SER A  32      -3.553   5.230 -13.766  1.00  0.00              \nATOM     33  CA  SER A  33      -3.213   1.739 -11.844  1.00  0.00              \nATOM     34  CA  ARG A  34      -2.654  -0.510 -14.852  1.00  0.00              \nATOM     35  CA  TYR A  35       1.073  -0.639 -14.578  1.00  0.00              \nATOM     36  CA  PHE A  36       1.953  -0.549 -10.914  1.00  0.00              \nATOM     37  CA  LEU A  37       0.946  -4.000  -9.766  1.00  0.00              \nATOM     38  CA  GLU A  38       1.953  -6.008 -12.750  1.00  0.00              \nATOM     39  CA  ALA A  39       5.609  -4.852 -12.680  1.00  0.00              \nATOM     40  CA  SER A  40       6.773  -5.762  -9.031  1.00  0.00              \nATOM     41  CA  PRO A  41       4.918  -6.383  -5.828  1.00  0.00              \nATOM     42  CA  CYS A  42       7.945  -4.734  -4.102  1.00  0.00              \nATOM     43  CA  LEU A  43       7.609  -1.434  -5.906  1.00  0.00              \nATOM     44  CA  SER A  44       4.020  -1.270  -5.098  1.00  0.00              \nATOM     45  CA  LEU A  45       4.758  -1.805  -1.443  1.00  0.00              \nATOM     46  CA  MET A  46       7.531   0.780  -1.545  1.00  0.00              \nATOM     47  CA  ALA A  47       5.203   3.336  -3.121  1.00  0.00              \nATOM     48  CA  ILE A  48       2.631   2.686  -0.458  1.00  0.00              \nATOM     49  CA  THR A  49       5.242   3.049   2.324  1.00  0.00              \nATOM     50  CA  HIS A  50       6.480   6.301   0.798  1.00  0.00              \nATOM     51  CA  TRP A  51       3.143   7.918   0.481  1.00  0.00              \nATOM     52  CA  PHE A  52       1.610   6.645   3.707  1.00  0.00              \nATOM     53  CA  PRO A  53       4.301   6.328   6.297  1.00  0.00              \nATOM     54  CA  LYS A  54       1.688   6.574   9.031  1.00  0.00              \nATOM     55  CA  LEU A  55       0.044   3.365   7.914  1.00  0.00              \nATOM     56  CA  LEU A  56       3.217   1.500   8.773  1.00  0.00              \nATOM     57  CA  TYR A  57       3.895   2.469  12.219  1.00  0.00              \nATOM     58  CA  GLU A  58       2.199   1.165  15.406  1.00  0.00              \nATOM     59  CA  GLU A  59       3.012   3.041  18.531  1.00  0.00              \nATOM     60  CA  ASP A  60       2.926   1.149  21.719  1.00  0.00              \nATOM     61  CA  ALA A  61       1.573   2.568  25.016  1.00  0.00              \nATOM     62  CA  GLU A  62       5.156   3.529  25.781  1.00  0.00              \nATOM     63  CA  GLY A  63       5.629   5.598  22.609  1.00  0.00              \nATOM     64  CA  HIS A  64       7.898   3.141  20.672  1.00  0.00              \nATOM     65  CA  HIS A  65       7.445   3.018  16.891  1.00  0.00              \nATOM     66  CA  TYR A  66       7.328  -0.481  15.336  1.00  0.00              \nATOM     67  CA  THR A  67       7.609  -1.030  11.555  1.00  0.00              \nATOM     68  CA  ALA A  68       4.496  -3.197  10.781  1.00  0.00              \nATOM     69  CA  TYR A  69       6.488  -4.793   7.852  1.00  0.00              \nATOM     70  CA  GLY A  70       4.469  -7.840   8.547  1.00  0.00              \nATOM     71  CA  ASN A  71       0.996  -6.543   7.863  1.00  0.00              \nATOM     72  CA  ILE A  72       1.117  -4.488   4.633  1.00  0.00              \nATOM     73  CA  GLY A  73      -1.470  -7.078   3.693  1.00  0.00              \nATOM     74  CA  THR A  74      -3.674  -5.918   6.562  1.00  0.00              \nATOM     75  CA  LEU A  75      -4.281  -2.268   5.766  1.00  0.00              \nATOM     76  CA  ALA A  76      -6.527  -3.004   2.865  1.00  0.00              \nATOM     77  CA  LEU A  77      -9.695  -3.568   4.809  1.00  0.00              \nATOM     78  CA  THR A  78     -11.086  -1.506   7.441  1.00  0.00              \nATOM     79  CA  ASN A  79     -13.531   1.360   6.879  1.00  0.00              \nATOM     80  CA  SER A  80     -15.844   0.224   9.695  1.00  0.00              \nATOM     81  CA  GLY A  81     -14.367  -0.271  13.188  1.00  0.00              \nATOM     82  CA  THR A  82     -14.844  -4.184  13.062  1.00  0.00              \nATOM     83  CA  LEU A  83     -12.219  -6.664  11.602  1.00  0.00              \nATOM     84  CA  PRO A  84     -14.172  -8.969   9.164  1.00  0.00              \nATOM     85  CA  LYS A  85     -13.914 -12.500  10.633  1.00  0.00              \nATOM     86  CA  TYR A  86     -12.195 -13.531   7.363  1.00  0.00              \nATOM     87  CA  SER A  87     -10.656 -17.047   8.211  1.00  0.00              \nATOM     88  CA  GLN A  88      -6.934 -16.719   8.938  1.00  0.00              \nATOM     89  CA  SER A  89      -6.039 -18.359   5.660  1.00  0.00              \nATOM     90  CA  SER A  90      -4.988 -15.938   2.977  1.00  0.00              \nATOM     91  CA  PHE A  91      -2.145 -13.750   4.148  1.00  0.00              \nATOM     92  CA  ILE A  92       0.959 -13.359   1.901  1.00  0.00              \nATOM     93  CA  SER A  93       3.807 -12.281   4.156  1.00  0.00              \nATOM     94  CA  VAL A  94       6.277  -9.602   2.578  1.00  0.00              \nATOM     95  CA  GLN A  95       8.602 -12.562   2.920  1.00  0.00              \nATOM     96  CA  GLU A  96       6.391 -14.766   0.761  1.00  0.00              \nATOM     97  CA  ALA A  97       6.508 -12.086  -2.066  1.00  0.00              \nATOM     98  CA  GLY A  98      10.336 -12.508  -2.412  1.00  0.00              \nATOM     99  CA  CYS A  99      10.875  -8.883  -1.243  1.00  0.00              \nATOM    100  CA  GLN A 100      14.273  -8.789   0.564  1.00  0.00              \nATOM    101  CA  GLY A 101      14.281  -6.324   3.537  1.00  0.00              \nATOM    102  CA  SER A 102      17.250  -4.719   1.689  1.00  0.00              \nATOM    103  CA  ASP A 103      15.062  -3.916  -1.352  1.00  0.00              \nATOM    104  CA  ILE A 104      13.031  -1.756   1.010  1.00  0.00              \nATOM    105  CA  SER A 105      15.812   0.699   1.934  1.00  0.00              \nATOM    106  CA  THR A 106      14.242   2.260   5.055  1.00  0.00              \nATOM    107  CA  ARG A 107      16.062   5.445   4.520  1.00  0.00              \nATOM    108  CA  THR A 108      14.930   6.270   8.062  1.00  0.00              \nATOM    109  CA  TYR A 109      13.672   9.664   6.953  1.00  0.00              \nATOM    110  CA  LYS A 110      14.680  11.375  10.258  1.00  0.00              \nATOM    111  CA  GLN A 111      11.484  13.352  10.516  1.00  0.00              \nATOM    112  CA  GLN A 112      13.188  16.516   9.211  1.00  0.00              \nATOM    113  CA  ASP A 113      10.445  19.047   9.781  1.00  0.00              \nATOM    114  CA  TYR A 114       7.672  18.703   7.211  1.00  0.00              \nATOM    115  CA  SER A 115       7.141  22.359   7.941  1.00  0.00              \nATOM    116  CA  GLN A 116       8.398  23.812   4.746  1.00  0.00              \nATOM    117  CA  GLN A 117       9.562  22.031   1.620  1.00  0.00              \nATOM    118  CA  THR A 118       7.121  22.328  -1.322  1.00  0.00              \nATOM    119  CA  LEU A 119       9.078  19.750  -3.455  1.00  0.00              \nATOM    120  CA  LYS A 120       9.719  22.000  -6.625  1.00  0.00              \nATOM    121  CA  ILE A 121       9.477  19.062  -9.164  1.00  0.00              \nATOM    122  CA  GLU A 122      11.914  20.438 -11.930  1.00  0.00              \nATOM    123  CA  ASN A 123      10.102  19.203 -15.156  1.00  0.00              \nATOM    124  CA  GLY A 124      12.820  17.031 -16.734  1.00  0.00              \nATOM    125  CA  ARG A 125      11.289  17.031 -20.359  1.00  0.00              \nATOM    126  CA  HIS A 126      11.938  13.688 -22.000  1.00  0.00              \nATOM    127  CA  SER A 127      11.820  14.781 -25.703  1.00  0.00              \nATOM    128  CA  GLU A 128      12.680  12.305 -28.266  1.00  0.00              \nATOM    129  CA  ALA A 129      15.047  10.266 -30.328  1.00  0.00              \nATOM    130  CA  GLY A 130      16.844  12.633 -32.812  1.00  0.00              \nATOM    131  CA  ALA A 131      19.625  11.531 -35.000  1.00  0.00              \nATOM    132  CA  GLY A 132      23.375  11.281 -34.844  1.00  0.00              \nATOM    133  CA  PRO A 133      25.516  14.141 -35.750  1.00  0.00              \nATOM    134  CA  ALA A 134      27.406  13.156 -39.031  1.00  0.00              \nATOM    135  CA  THR A 135      30.094  15.727 -39.344  1.00  0.00              \nATOM    136  CA  SER A 136      33.812  14.836 -40.375  1.00  0.00              \nATOM    137  CA  PRO A 137      37.094  16.297 -39.156  1.00  0.00              \nATOM    138  CA  SER A 138      39.312  18.000 -41.906  1.00  0.00              \nEND   ","type":"file","addRepresentation":{"type":["cartoon"],"values":[{"color":"#0000FF"}]},"setScale":1,"setRotation":[],"setPosition":[],"zoomMove":[]},{"file_ext":"pdb","data":"ATOM      1  CA  ALA A   1      -3.690   8.073  11.078  1.00  0.00              \nATOM      2  CA  SER A   2      -4.000   4.524   9.625  1.00  0.00              \nATOM      3  CA  LEU A   3      -2.686   4.206   5.959  1.00  0.00              \nATOM      4  CA  PHE A   4      -4.473   1.520   3.816  1.00  0.00              \nATOM      5  CA  ILE A   5      -2.606   0.071   0.870  1.00  0.00              \nATOM      6  CA  LEU A   6      -5.189  -1.669  -1.302  1.00  0.00              \nATOM      7  CA  ILE A   7      -3.513  -4.545  -3.140  1.00  0.00              \nATOM      8  CA  GLY A   8      -6.386  -6.111  -5.158  1.00  0.00              \nATOM      9  CA  PRO A   9      -6.146  -9.824  -6.365  1.00  0.00              \nATOM     10  CA  LYS A  10      -4.498 -10.509  -9.730  1.00  0.00              \nATOM     11  CA  ALA A  11      -7.746  -9.840 -11.694  1.00  0.00              \nATOM     12  CA  LYS A  12      -7.507 -13.035 -13.848  1.00  0.00              \nATOM     13  CA  ARG A  13      -5.636 -11.450 -16.748  1.00  0.00              \nATOM     14  CA  THR A  14      -3.005 -12.803 -19.393  1.00  0.00              \nATOM     15  CA  ALA A  15       0.766 -12.898 -18.469  1.00  0.00              \nATOM     16  CA  SER A  16       1.364  -9.375 -19.888  1.00  0.00              \nATOM     17  CA  GLN A  17      -0.316  -7.075 -17.352  1.00  0.00              \nATOM     18  CA  ASN A  18       1.483  -7.774 -13.965  1.00  0.00              \nATOM     19  CA  LEU A  19       0.183  -4.553 -12.522  1.00  0.00              \nATOM     20  CA  SER A  20      -0.326  -4.240  -8.737  1.00  0.00              \nATOM     21  CA  HIS A  21      -2.566  -1.181  -8.060  1.00  0.00              \nATOM     22  CA  PHE A  22      -1.606   0.785  -4.962  1.00  0.00              \nATOM     23  CA  MET A  23      -3.999   3.442  -3.645  1.00  0.00              \nATOM     24  CA  PHE A  24      -2.758   5.617  -0.747  1.00  0.00              \nATOM     25  CA  ARG A  25      -5.454   7.204   1.306  1.00  0.00              \nATOM     26  CA  ASP A  26      -4.003   9.456   3.975  1.00  0.00              \nATOM     27  CA  LYS A  27      -7.153  10.981   5.968  1.00  0.00              \nATOM     28  CA  ARG A  28      -5.233  14.359   5.955  1.00  0.00              \nATOM     29  CA  VAL A  29      -4.111  14.307   2.325  1.00  0.00              \nATOM     30  CA  ASN A  30      -6.291  12.844  -0.481  1.00  0.00              \nATOM     31  CA  TYR A  31      -3.224  11.349  -2.206  1.00  0.00              \nATOM     32  CA  SER A  32      -4.619   8.792  -4.684  1.00  0.00              \nATOM     33  CA  SER A  33      -1.441   8.080  -6.409  1.00  0.00              \nATOM     34  CA  ARG A  34      -1.991   5.142  -8.774  1.00  0.00              \nATOM     35  CA  TYR A  35       1.503   3.745  -8.978  1.00  0.00              \nATOM     36  CA  PHE A  36       1.682   1.106 -11.696  1.00  0.00              \nATOM     37  CA  LEU A  37       4.626  -0.756 -10.345  1.00  0.00              \nATOM     38  CA  GLU A  38       5.089  -2.844 -13.420  1.00  0.00              \nATOM     39  CA  ALA A  39       6.446  -6.026 -11.988  1.00  0.00              \nATOM     40  CA  SER A  40       7.116  -6.965  -8.281  1.00  0.00              \nATOM     41  CA  PRO A  41       5.241  -6.462  -5.053  1.00  0.00              \nATOM     42  CA  CYS A  42       8.790  -5.754  -3.674  1.00  0.00              \nATOM     43  CA  LEU A  43       9.449  -2.890  -6.015  1.00  0.00              \nATOM     44  CA  SER A  44       5.971  -1.504  -5.292  1.00  0.00              \nATOM     45  CA  LEU A  45       6.646  -1.696  -1.571  1.00  0.00              \nATOM     46  CA  MET A  46      10.057  -0.164  -2.085  1.00  0.00              \nATOM     47  CA  ALA A  47       8.542   2.659  -4.149  1.00  0.00              \nATOM     48  CA  ILE A  48       5.998   3.231  -1.416  1.00  0.00              \nATOM     49  CA  THR A  49       8.689   3.203   1.282  1.00  0.00              \nATOM     50  CA  HIS A  50      10.749   5.605  -0.877  1.00  0.00              \nATOM     51  CA  TRP A  51       7.968   8.176  -1.365  1.00  0.00              \nATOM     52  CA  PHE A  52       6.637   7.895   2.144  1.00  0.00              \nATOM     53  CA  PRO A  53       9.555   7.054   4.400  1.00  0.00              \nATOM     54  CA  LYS A  54       7.595   8.363   7.345  1.00  0.00              \nATOM     55  CA  LEU A  55       4.758   5.907   6.596  1.00  0.00              \nATOM     56  CA  LEU A  56       6.858   2.896   7.709  1.00  0.00              \nATOM     57  CA  TYR A  57       8.813   4.361  10.554  1.00  0.00              \nATOM     58  CA  GLU A  58       6.973   3.977  13.819  1.00  0.00              \nATOM     59  CA  GLU A  59       9.055   4.709  16.922  1.00  0.00              \nATOM     60  CA  ASP A  60       7.409   3.289  19.932  1.00  0.00              \nATOM     61  CA  ALA A  61       7.383   5.174  23.203  1.00  0.00              \nATOM     62  CA  GLU A  62      10.575   3.280  24.063  1.00  0.00              \nATOM     63  CA  GLY A  63      12.484   4.628  21.089  1.00  0.00              \nATOM     64  CA  HIS A  64      12.501   1.301  19.191  1.00  0.00              \nATOM     65  CA  HIS A  65      12.457   1.649  15.541  1.00  0.00              \nATOM     66  CA  TYR A  66       9.913  -0.488  13.785  1.00  0.00              \nATOM     67  CA  THR A  67       9.689  -0.579  10.024  1.00  0.00              \nATOM     68  CA  ALA A  68       5.860  -0.887  10.136  1.00  0.00              \nATOM     69  CA  TYR A  69       5.580  -3.049   7.079  1.00  0.00              \nATOM     70  CA  GLY A  70       1.854  -2.042   7.161  1.00  0.00              \nATOM     71  CA  ASN A  71       0.076  -5.225   6.164  1.00  0.00              \nATOM     72  CA  ILE A  72      -0.756  -4.712   2.327  1.00  0.00              \nATOM     73  CA  GLY A  73      -4.298  -6.418   2.660  1.00  0.00              \nATOM     74  CA  THR A  74      -5.012  -7.884  -0.896  1.00  0.00              \nATOM     75  CA  LEU A  75      -8.231  -5.939  -1.574  1.00  0.00              \nATOM     76  CA  ALA A  76     -10.138  -8.287  -4.067  1.00  0.00              \nATOM     77  CA  LEU A  77     -11.627  -5.769  -6.667  1.00  0.00              \nATOM     78  CA  THR A  78     -15.253  -6.875  -6.602  1.00  0.00              \nATOM     79  CA  ASN A  79     -16.309  -6.336 -10.339  1.00  0.00              \nATOM     80  CA  SER A  80     -18.700  -3.812  -8.914  1.00  0.00              \nATOM     81  CA  GLY A  81     -16.395  -0.835  -8.060  1.00  0.00              \nATOM     82  CA  THR A  82     -17.712  -1.012  -4.477  1.00  0.00              \nATOM     83  CA  LEU A  83     -14.904  -1.229  -1.744  1.00  0.00              \nATOM     84  CA  PRO A  84     -16.158  -4.049   0.527  1.00  0.00              \nATOM     85  CA  LYS A  85     -16.826  -2.595   3.986  1.00  0.00              \nATOM     86  CA  TYR A  86     -13.790  -4.365   5.819  1.00  0.00              \nATOM     87  CA  SER A  87     -14.744  -6.054   9.253  1.00  0.00              \nATOM     88  CA  GLN A  88     -11.381  -5.856  11.174  1.00  0.00              \nATOM     89  CA  SER A  89      -8.652  -8.273  10.367  1.00  0.00              \nATOM     90  CA  SER A  90      -7.476 -10.348   7.475  1.00  0.00              \nATOM     91  CA  PHE A  91      -3.461  -9.927   7.557  1.00  0.00              \nATOM     92  CA  ILE A  92      -1.010 -11.118   4.820  1.00  0.00              \nATOM     93  CA  SER A  93       2.693 -10.734   5.964  1.00  0.00              \nATOM     94  CA  VAL A  94       5.376  -9.278   3.379  1.00  0.00              \nATOM     95  CA  GLN A  95       6.927 -12.709   3.938  1.00  0.00              \nATOM     96  CA  GLU A  96       4.103 -14.239   2.071  1.00  0.00              \nATOM     97  CA  ALA A  97       4.948 -12.104  -1.057  1.00  0.00              \nATOM     98  CA  GLY A  98       8.410 -13.961  -1.427  1.00  0.00              \nATOM     99  CA  CYS A  99      10.391 -10.656  -0.952  1.00  0.00              \nATOM    100  CA  GLN A 100      13.735 -11.753   0.650  1.00  0.00              \nATOM    101  CA  GLY A 101      15.166  -8.925   2.820  1.00  0.00              \nATOM    102  CA  SER A 102      18.150  -8.956   0.395  1.00  0.00              \nATOM    103  CA  ASP A 103      15.939  -7.578  -2.475  1.00  0.00              \nATOM    104  CA  ILE A 104      15.349  -4.515  -0.280  1.00  0.00              \nATOM    105  CA  SER A 105      19.107  -3.639  -0.360  1.00  0.00              \nATOM    106  CA  THR A 106      18.770   0.078   0.488  1.00  0.00              \nATOM    107  CA  ARG A 107      19.740   1.030  -3.083  1.00  0.00              \nATOM    108  CA  THR A 108      19.593   4.539  -1.714  1.00  0.00              \nATOM    109  CA  TYR A 109      17.194   5.741  -4.393  1.00  0.00              \nATOM    110  CA  LYS A 110      18.464   9.363  -4.293  1.00  0.00              \nATOM    111  CA  GLN A 111      15.280  11.056  -2.986  1.00  0.00              \nATOM    112  CA  GLN A 112      14.235  12.570  -6.303  1.00  0.00              \nATOM    113  CA  ASP A 113      12.249  15.531  -4.774  1.00  0.00              \nATOM    114  CA  TYR A 114       9.065  14.978  -6.769  1.00  0.00              \nATOM    115  CA  SER A 115       7.363  17.592  -4.479  1.00  0.00              \nATOM    116  CA  GLN A 116       6.700  19.286  -7.733  1.00  0.00              \nATOM    117  CA  GLN A 117       5.182  16.892 -10.251  1.00  0.00              \nATOM    118  CA  THR A 118       1.406  17.332 -10.245  1.00  0.00              \nATOM    119  CA  LEU A 119       0.961  13.821 -11.804  1.00  0.00              \nATOM    120  CA  LYS A 120      -1.986  14.672 -14.137  1.00  0.00              \nATOM    121  CA  ILE A 121      -3.415  11.114 -14.727  1.00  0.00              \nATOM    122  CA  GLU A 122      -5.801  11.627 -17.652  1.00  0.00              \nATOM    123  CA  ASN A 123      -7.795   8.469 -18.456  1.00  0.00              \nATOM    124  CA  GLY A 124      -5.417   5.821 -17.243  1.00  0.00              \nATOM    125  CA  ARG A 125      -2.463   6.502 -19.670  1.00  0.00              \nATOM    126  CA  HIS A 126       1.011   7.758 -18.127  1.00  0.00              \nATOM    127  CA  SER A 127       2.517  10.410 -20.536  1.00  0.00              \nATOM    128  CA  GLU A 128       6.062  10.891 -18.962  1.00  0.00              \nATOM    129  CA  ALA A 129       6.296  14.662 -19.264  1.00  0.00              \nATOM    130  CA  GLY A 130       9.985  14.565 -20.381  1.00  0.00              \nATOM    131  CA  ALA A 131      12.946  12.623 -18.840  1.00  0.00              \nATOM    132  CA  GLY A 132      15.303  15.368 -20.330  1.00  0.00              \nATOM    133  CA  PRO A 133      18.490  13.450 -21.477  1.00  0.00              \nATOM    134  CA  ALA A 134      20.737  11.169 -19.273  1.00  0.00              \nATOM    135  CA  THR A 135      23.887  13.132 -18.645  1.00  0.00              \nATOM    136  CA  SER A 136      26.393  10.219 -19.310  1.00  0.00              \nATOM    137  CA  PRO A 137      28.816   9.604 -16.385  1.00  0.00              \nATOM    138  CA  SER A 138      32.497  10.927 -17.235  1.00  0.00              \nEND   ","type":"file","addRepresentation":{"type":["cartoon"],"values":[{"color":"#FF0000"}]},"setRock":false,"toggleRock":false,"setSpin":false,"setScale":1,"setRotation":[],"setPosition":[],"toggleSpin":false,"zoomMove":[]},{"file_ext":"pdb","data":"ATOM      1  CA  ALA A   1      -7.019   7.800   8.601  1.00  0.00              \nATOM      2  CA  SER A   2      -8.012   4.512   7.291  1.00  0.00              \nATOM      3  CA  LEU A   3      -6.488   4.043   3.821  1.00  0.00              \nATOM      4  CA  PHE A   4      -9.014   2.046   1.715  1.00  0.00              \nATOM      5  CA  ILE A   5      -7.490   0.350  -1.307  1.00  0.00              \nATOM      6  CA  LEU A   6     -10.525  -0.269  -3.669  1.00  0.00              \nATOM      7  CA  ILE A   7      -9.575  -3.164  -5.895  1.00  0.00              \nATOM      8  CA  GLY A   8     -12.614  -3.115  -8.247  1.00  0.00              \nATOM      9  CA  PRO A   9     -13.818  -6.495  -9.843  1.00  0.00              \nATOM     10  CA  LYS A  10     -13.043  -4.932 -13.269  1.00  0.00              \nATOM     11  CA  ALA A  11      -9.286  -5.217 -13.523  1.00  0.00              \nATOM     12  CA  LYS A  12      -9.595  -7.819 -16.400  1.00  0.00              \nATOM     13  CA  ARG A  13      -6.393  -9.913 -16.167  1.00  0.00              \nATOM     14  CA  THR A  14      -5.214  -9.493 -19.753  1.00  0.00              \nATOM     15  CA  ALA A  15      -2.837 -12.602 -19.912  1.00  0.00              \nATOM     16  CA  SER A  16       0.206 -10.497 -21.076  1.00  0.00              \nATOM     17  CA  GLN A  17       0.922  -7.608 -18.517  1.00  0.00              \nATOM     18  CA  ASN A  18       1.907  -8.282 -14.852  1.00  0.00              \nATOM     19  CA  LEU A  19       0.038  -5.068 -13.915  1.00  0.00              \nATOM     20  CA  SER A  20      -1.471  -4.847 -10.403  1.00  0.00              \nATOM     21  CA  HIS A  21      -3.569  -1.611 -10.402  1.00  0.00              \nATOM     22  CA  PHE A  22      -3.575   0.370  -7.156  1.00  0.00              \nATOM     23  CA  MET A  23      -6.181   3.147  -6.627  1.00  0.00              \nATOM     24  CA  PHE A  24      -5.713   5.529  -3.627  1.00  0.00              \nATOM     25  CA  ARG A  25      -8.644   7.572  -2.322  1.00  0.00              \nATOM     26  CA  ASP A  26      -7.585   9.992   0.437  1.00  0.00              \nATOM     27  CA  LYS A  27     -10.881  11.448   2.104  1.00  0.00              \nATOM     28  CA  ARG A  28      -8.785  14.451   3.376  1.00  0.00              \nATOM     29  CA  VAL A  29      -7.068  15.255   0.100  1.00  0.00              \nATOM     30  CA  ASN A  30      -9.323  15.991  -3.060  1.00  0.00              \nATOM     31  CA  TYR A  31      -6.490  14.139  -5.086  1.00  0.00              \nATOM     32  CA  SER A  32      -8.163  12.030  -8.012  1.00  0.00              \nATOM     33  CA  SER A  33      -4.629  11.057  -8.829  1.00  0.00              \nATOM     34  CA  ARG A  34      -4.527   7.657 -10.490  1.00  0.00              \nATOM     35  CA  TYR A  35      -1.090   6.236  -9.572  1.00  0.00              \nATOM     36  CA  PHE A  36      -0.085   3.606 -12.084  1.00  0.00              \nATOM     37  CA  LEU A  37       2.412   1.457 -10.290  1.00  0.00              \nATOM     38  CA  GLU A  38       3.833  -0.347 -13.276  1.00  0.00              \nATOM     39  CA  ALA A  39       6.045  -2.697 -11.248  1.00  0.00              \nATOM     40  CA  SER A  40       6.251  -6.125  -9.355  1.00  0.00              \nATOM     41  CA  PRO A  41       4.353  -6.441  -6.057  1.00  0.00              \nATOM     42  CA  CYS A  42       7.814  -5.416  -4.686  1.00  0.00              \nATOM     43  CA  LEU A  43       8.011  -2.084  -6.634  1.00  0.00              \nATOM     44  CA  SER A  44       4.415  -1.185  -5.583  1.00  0.00              \nATOM     45  CA  LEU A  45       5.464  -1.644  -1.896  1.00  0.00              \nATOM     46  CA  MET A  46       8.598   0.552  -2.555  1.00  0.00              \nATOM     47  CA  ALA A  47       6.513   3.240  -4.355  1.00  0.00              \nATOM     48  CA  ILE A  48       3.992   3.240  -1.501  1.00  0.00              \nATOM     49  CA  THR A  49       6.807   3.602   1.100  1.00  0.00              \nATOM     50  CA  HIS A  50       8.471   6.430  -1.036  1.00  0.00              \nATOM     51  CA  TRP A  51       5.255   8.457  -1.617  1.00  0.00              \nATOM     52  CA  PHE A  52       3.651   8.049   1.800  1.00  0.00              \nATOM     53  CA  PRO A  53       6.431   8.131   4.407  1.00  0.00              \nATOM     54  CA  LYS A  54       3.753   9.342   6.853  1.00  0.00              \nATOM     55  CA  LEU A  55       1.772   6.186   6.298  1.00  0.00              \nATOM     56  CA  LEU A  56       4.515   4.047   7.958  1.00  0.00              \nATOM     57  CA  TYR A  57       5.481   5.888  10.970  1.00  0.00              \nATOM     58  CA  GLU A  58       3.799   5.204  14.315  1.00  0.00              \nATOM     59  CA  GLU A  59       5.296   7.286  17.074  1.00  0.00              \nATOM     60  CA  ASP A  60       5.034   5.529  20.395  1.00  0.00              \nATOM     61  CA  ALA A  61       4.265   7.581  23.588  1.00  0.00              \nATOM     62  CA  GLU A  62       8.069   7.687  24.087  1.00  0.00              \nATOM     63  CA  GLY A  63       8.824   9.338  20.748  1.00  0.00              \nATOM     64  CA  HIS A  64      10.231   6.159  19.095  1.00  0.00              \nATOM     65  CA  HIS A  65       9.604   5.953  15.389  1.00  0.00              \nATOM     66  CA  TYR A  66       8.451   2.505  14.367  1.00  0.00              \nATOM     67  CA  THR A  67       8.449   1.673  10.665  1.00  0.00              \nATOM     68  CA  ALA A  68       4.887   0.297  10.711  1.00  0.00              \nATOM     69  CA  TYR A  69       5.973  -2.588   8.548  1.00  0.00              \nATOM     70  CA  GLY A  70       2.487  -3.407  10.041  1.00  0.00              \nATOM     71  CA  ASN A  71      -0.284  -2.139   7.748  1.00  0.00              \nATOM     72  CA  ILE A  72       1.171  -2.772   4.223  1.00  0.00              \nATOM     73  CA  GLY A  73       0.438  -6.628   4.974  1.00  0.00              \nATOM     74  CA  THR A  74      -2.955  -6.598   3.160  1.00  0.00              \nATOM     75  CA  LEU A  75      -1.733  -6.363  -0.416  1.00  0.00              \nATOM     76  CA  ALA A  76      -0.126  -9.791  -1.078  1.00  0.00              \nATOM     77  CA  LEU A  77      -2.543 -11.409  -3.773  1.00  0.00              \nATOM     78  CA  THR A  78      -2.391 -15.280  -3.650  1.00  0.00              \nATOM     79  CA  ASN A  79      -1.687 -16.570  -7.302  1.00  0.00              \nATOM     80  CA  SER A  80      -5.471 -17.220  -7.330  1.00  0.00              \nATOM     81  CA  GLY A  81      -6.980 -13.780  -8.034  1.00  0.00              \nATOM     82  CA  THR A  82      -9.239 -14.307  -4.899  1.00  0.00              \nATOM     83  CA  LEU A  83      -8.922 -11.676  -2.075  1.00  0.00              \nATOM     84  CA  PRO A  84      -9.109 -13.957   0.988  1.00  0.00              \nATOM     85  CA  LYS A  85     -12.202 -12.750   2.826  1.00  0.00              \nATOM     86  CA  TYR A  86      -9.949 -12.220   5.895  1.00  0.00              \nATOM     87  CA  SER A  87     -11.777 -10.566   8.903  1.00  0.00              \nATOM     88  CA  GLN A  88     -10.071  -7.655  10.698  1.00  0.00              \nATOM     89  CA  SER A  89      -6.302  -8.185  11.009  1.00  0.00              \nATOM     90  CA  SER A  90      -4.394 -10.642   8.923  1.00  0.00              \nATOM     91  CA  PHE A  91      -0.546  -9.989   8.617  1.00  0.00              \nATOM     92  CA  ILE A  92       1.083 -11.195   5.362  1.00  0.00              \nATOM     93  CA  SER A  93       4.864 -11.306   5.753  1.00  0.00              \nATOM     94  CA  VAL A  94       7.044  -9.680   2.839  1.00  0.00              \nATOM     95  CA  GLN A  95       8.256 -13.296   2.609  1.00  0.00              \nATOM     96  CA  GLU A  96       4.787 -14.546   1.965  1.00  0.00              \nATOM     97  CA  ALA A  97       4.500 -11.922  -0.871  1.00  0.00              \nATOM     98  CA  GLY A  98       7.536 -13.544  -2.698  1.00  0.00              \nATOM     99  CA  CYS A  99       9.723 -10.418  -2.030  1.00  0.00              \nATOM    100  CA  GLN A 100      13.424 -11.371  -1.549  1.00  0.00              \nATOM    101  CA  GLY A 101      15.328  -9.280   1.133  1.00  0.00              \nATOM    102  CA  SER A 102      17.517  -7.870  -1.765  1.00  0.00              \nATOM    103  CA  ASP A 103      14.409  -6.438  -3.505  1.00  0.00              \nATOM    104  CA  ILE A 104      14.028  -4.157  -0.522  1.00  0.00              \nATOM    105  CA  SER A 105      16.953  -1.702  -0.661  1.00  0.00              \nATOM    106  CA  THR A 106      16.784  -0.530   2.981  1.00  0.00              \nATOM    107  CA  ARG A 107      17.925   2.760   1.514  1.00  0.00              \nATOM    108  CA  THR A 108      17.824   4.323   4.960  1.00  0.00              \nATOM    109  CA  TYR A 109      15.993   7.313   3.516  1.00  0.00              \nATOM    110  CA  LYS A 110      17.803   9.964   5.649  1.00  0.00              \nATOM    111  CA  GLN A 111      14.700  12.170   6.197  1.00  0.00              \nATOM    112  CA  GLN A 112      15.127  14.674   3.337  1.00  0.00              \nATOM    113  CA  ASP A 113      12.899  17.322   4.970  1.00  0.00              \nATOM    114  CA  TYR A 114      10.155  16.981   2.295  1.00  0.00              \nATOM    115  CA  SER A 115       8.317  19.602   4.525  1.00  0.00              \nATOM    116  CA  GLN A 116       8.371  21.857   1.543  1.00  0.00              \nATOM    117  CA  GLN A 117       8.047  20.417  -1.982  1.00  0.00              \nATOM    118  CA  THR A 118       4.431  21.163  -2.881  1.00  0.00              \nATOM    119  CA  LEU A 119       4.813  18.933  -5.984  1.00  0.00              \nATOM    120  CA  LYS A 120       3.130  21.436  -8.415  1.00  0.00              \nATOM    121  CA  ILE A 121       1.723  18.501 -10.542  1.00  0.00              \nATOM    122  CA  GLU A 122       1.122  20.775 -13.660  1.00  0.00              \nATOM    123  CA  ASN A 123      -1.981  19.195 -15.364  1.00  0.00              \nATOM    124  CA  GLY A 124      -1.332  17.525 -18.681  1.00  0.00              \nATOM    125  CA  ARG A 125      -0.094  14.509 -20.773  1.00  0.00              \nATOM    126  CA  HIS A 126       1.224  10.931 -21.135  1.00  0.00              \nATOM    127  CA  SER A 127       4.160  10.809 -23.407  1.00  0.00              \nATOM    128  CA  GLU A 128       4.976   7.182 -24.038  1.00  0.00              \nATOM    129  CA  ALA A 129       7.847   7.299 -26.486  1.00  0.00              \nATOM    130  CA  GLY A 130      11.368   6.576 -26.758  1.00  0.00              \nATOM    131  CA  ALA A 131      13.335   3.488 -26.737  1.00  0.00              \nATOM    132  CA  GLY A 132      16.773   4.508 -27.487  1.00  0.00              \nATOM    133  CA  PRO A 133      19.702   2.545 -26.551  1.00  0.00              \nATOM    134  CA  ALA A 134      22.595   1.782 -24.042  1.00  0.00              \nATOM    135  CA  THR A 135      26.142   2.867 -23.827  1.00  0.00              \nATOM    136  CA  SER A 136      28.430   3.714 -20.876  1.00  0.00              \nATOM    137  CA  PRO A 137      30.446   6.320 -19.056  1.00  0.00              \nATOM    138  CA  SER A 138      33.229   8.903 -19.184  1.00  0.00              \nEND   ","type":"file","addRepresentation":{"type":["cartoon"],"values":[{"color":"#595959"}]},"setRock":false,"toggleRock":false,"setSpin":false,"setScale":1,"setRotation":[],"setPosition":[],"toggleSpin":false,"zoomMove":[]},{"file_ext":"pdb","data":"ATOM      1  CA  ALA A   1      11.817   8.884  -7.284  1.00  0.00              \nATOM      2  CA  SER A   2      11.999   6.188  -9.966  1.00  0.00              \nATOM      3  CA  LEU A   3      11.369   2.826  -8.326  1.00  0.00              \nATOM      4  CA  PHE A   4      12.447  -0.388 -10.348  1.00  0.00              \nATOM      5  CA  ILE A   5      10.283  -3.666 -10.074  1.00  0.00              \nATOM      6  CA  LEU A   6      11.564  -7.287 -10.633  1.00  0.00              \nATOM      7  CA  ILE A   7       8.962  -9.421 -12.612  1.00  0.00              \nATOM      8  CA  GLY A   8       9.562 -13.080 -11.816  1.00  0.00              \nATOM      9  CA  PRO A   9       9.294 -15.444 -14.865  1.00  0.00              \nATOM     10  CA  LYS A  10       5.918 -17.097 -13.998  1.00  0.00              \nATOM     11  CA  ALA A  11       3.866 -13.925 -14.215  1.00  0.00              \nATOM     12  CA  LYS A  12       4.999 -13.561 -17.864  1.00  0.00              \nATOM     13  CA  ARG A  13       2.490 -16.039 -19.293  1.00  0.00              \nATOM     14  CA  THR A  14      -0.905 -14.900 -18.101  1.00  0.00              \nATOM     15  CA  ALA A  15      -0.426 -11.170 -17.461  1.00  0.00              \nATOM     16  CA  SER A  16       0.770 -10.394 -21.081  1.00  0.00              \nATOM     17  CA  GLN A  17      -2.654  -9.527 -22.280  1.00  0.00              \nATOM     18  CA  ASN A  18      -4.834  -7.350 -20.080  1.00  0.00              \nATOM     19  CA  LEU A  19      -3.192  -5.168 -17.377  1.00  0.00              \nATOM     20  CA  SER A  20      -3.777  -2.091 -19.578  1.00  0.00              \nATOM     21  CA  HIS A  21      -3.711   0.667 -17.161  1.00  0.00              \nATOM     22  CA  PHE A  22      -5.810   1.292 -14.053  1.00  0.00              \nATOM     23  CA  MET A  23      -5.117   5.081 -13.490  1.00  0.00              \nATOM     24  CA  PHE A  24      -7.446   6.286 -10.627  1.00  0.00              \nATOM     25  CA  ARG A  25      -7.607  10.167 -11.031  1.00  0.00              \nATOM     26  CA  ASP A  26      -8.167  11.241  -7.340  1.00  0.00              \nATOM     27  CA  LYS A  27      -9.060  15.016  -8.366  1.00  0.00              \nATOM     28  CA  ARG A  28      -7.839  16.135  -4.955  1.00  0.00              \nATOM     29  CA  VAL A  29      -4.400  14.558  -4.985  1.00  0.00              \nATOM     30  CA  ASN A  30      -2.401  14.631  -8.296  1.00  0.00              \nATOM     31  CA  TYR A  31      -0.701  11.377  -7.515  1.00  0.00              \nATOM     32  CA  SER A  32      -0.145   9.410 -10.854  1.00  0.00              \nATOM     33  CA  SER A  33       0.312   6.281  -8.800  1.00  0.00              \nATOM     34  CA  ARG A  34       0.307   3.138 -11.034  1.00  0.00              \nATOM     35  CA  TYR A  35      -1.413   0.226  -8.915  1.00  0.00              \nATOM     36  CA  PHE A  36       0.297  -3.448  -8.494  1.00  0.00              \nATOM     37  CA  LEU A  37      -1.602  -6.857  -8.344  1.00  0.00              \nATOM     38  CA  GLU A  38       0.475  -9.449  -6.297  1.00  0.00              \nATOM     39  CA  ALA A  39      -0.913 -12.997  -7.059  1.00  0.00              \nATOM     40  CA  SER A  40      -0.138 -14.668  -3.684  1.00  0.00              \nATOM     41  CA  PRO A  41      -0.114 -18.389  -4.529  1.00  0.00              \nATOM     42  CA  CYS A  42      -1.806 -18.658  -1.211  1.00  0.00              \nATOM     43  CA  LEU A  43      -4.451 -16.086  -1.782  1.00  0.00              \nATOM     44  CA  SER A  44      -7.218 -16.995  -4.184  1.00  0.00              \nATOM     45  CA  LEU A  45      -7.541 -13.201  -3.278  1.00  0.00              \nATOM     46  CA  MET A  46      -6.533 -10.268  -5.567  1.00  0.00              \nATOM     47  CA  ALA A  47      -4.855  -8.209  -2.818  1.00  0.00              \nATOM     48  CA  ILE A  48      -4.361  -4.570  -4.008  1.00  0.00              \nATOM     49  CA  THR A  49      -1.414  -3.614  -1.870  1.00  0.00              \nATOM     50  CA  HIS A  50      -1.859   0.152  -1.444  1.00  0.00              \nATOM     51  CA  TRP A  51       1.765   1.266  -1.299  1.00  0.00              \nATOM     52  CA  PHE A  52       1.288   4.559   0.443  1.00  0.00              \nATOM     53  CA  PRO A  53       4.872   5.832   0.201  1.00  0.00              \nATOM     54  CA  LYS A  54       4.653   6.525   3.915  1.00  0.00              \nATOM     55  CA  LEU A  55       8.422   7.240   4.322  1.00  0.00              \nATOM     56  CA  LEU A  56       8.900   5.305   7.563  1.00  0.00              \nATOM     57  CA  TYR A  57      11.983   7.046   9.212  1.00  0.00              \nATOM     58  CA  GLU A  58      14.071   4.821  11.542  1.00  0.00              \nATOM     59  CA  GLU A  59      17.065   6.420  13.466  1.00  0.00              \nATOM     60  CA  ASP A  60      19.376   3.844  15.013  1.00  0.00              \nATOM     61  CA  ALA A  61      21.125   4.581  18.394  1.00  0.00              \nATOM     62  CA  GLU A  62      24.091   5.663  16.336  1.00  0.00              \nATOM     63  CA  GLY A  63      22.179   8.275  14.329  1.00  0.00              \nATOM     64  CA  HIS A  64      21.887   6.438  10.993  1.00  0.00              \nATOM     65  CA  HIS A  65      18.775   7.115   8.920  1.00  0.00              \nATOM     66  CA  TYR A  66      16.957   4.192   7.369  1.00  0.00              \nATOM     67  CA  THR A  67      14.073   4.890   4.946  1.00  0.00              \nATOM     68  CA  ALA A  68      11.665   1.981   5.008  1.00  0.00              \nATOM     69  CA  TYR A  69       8.802   1.901   2.444  1.00  0.00              \nATOM     70  CA  GLY A  70       6.105   0.140   4.527  1.00  0.00              \nATOM     71  CA  ASN A  71       3.058  -1.842   3.165  1.00  0.00              \nATOM     72  CA  ILE A  72      -0.122  -0.049   4.550  1.00  0.00              \nATOM     73  CA  GLY A  73      -2.690  -2.743   4.373  1.00  0.00              \nATOM     74  CA  THR A  74      -3.751  -5.876   2.303  1.00  0.00              \nATOM     75  CA  LEU A  75      -7.160  -4.719   0.866  1.00  0.00              \nATOM     76  CA  ALA A  76      -9.166  -8.072   0.367  1.00  0.00              \nATOM     77  CA  LEU A  77     -11.495  -7.241  -2.730  1.00  0.00              \nATOM     78  CA  THR A  78     -14.607  -9.313  -1.779  1.00  0.00              \nATOM     79  CA  ASN A  79     -16.529 -10.115  -5.140  1.00  0.00              \nATOM     80  CA  SER A  80     -18.910  -7.353  -4.151  1.00  0.00              \nATOM     81  CA  GLY A  81     -17.043  -4.087  -5.145  1.00  0.00              \nATOM     82  CA  THR A  82     -17.733  -1.985  -2.025  1.00  0.00              \nATOM     83  CA  LEU A  83     -14.559  -0.235  -0.523  1.00  0.00              \nATOM     84  CA  PRO A  84     -14.934   0.288   3.269  1.00  0.00              \nATOM     85  CA  LYS A  85     -14.408   3.999   4.128  1.00  0.00              \nATOM     86  CA  TYR A  86     -11.288   3.801   6.460  1.00  0.00              \nATOM     87  CA  SER A  87     -12.250   6.858   8.738  1.00  0.00              \nATOM     88  CA  GLN A  88      -9.533   7.551  11.327  1.00  0.00              \nATOM     89  CA  SER A  89      -6.163   6.433  12.656  1.00  0.00              \nATOM     90  CA  SER A  90      -5.341   2.787  11.885  1.00  0.00              \nATOM     91  CA  PHE A  91      -2.596   1.505  14.144  1.00  0.00              \nATOM     92  CA  ILE A  92      -0.947  -0.704  11.439  1.00  0.00              \nATOM     93  CA  SER A  93      -0.061  -4.139  12.875  1.00  0.00              \nATOM     94  CA  VAL A  94       1.810  -5.458   9.744  1.00  0.00              \nATOM     95  CA  GLN A  95       0.736  -9.107  10.272  1.00  0.00              \nATOM     96  CA  GLU A  96       2.842 -10.662   7.420  1.00  0.00              \nATOM     97  CA  ALA A  97      -0.054 -13.141   6.992  1.00  0.00              \nATOM     98  CA  GLY A  98       1.431 -16.455   6.848  1.00  0.00              \nATOM     99  CA  CYS A  99       4.859 -17.799   5.874  1.00  0.00              \nATOM    100  CA  GLN A 100       4.808 -20.622   8.468  1.00  0.00              \nATOM    101  CA  GLY A 101       8.435 -20.320   9.815  1.00  0.00              \nATOM    102  CA  SER A 102       9.753 -16.819  10.082  1.00  0.00              \nATOM    103  CA  ASP A 103       9.994 -15.911  13.766  1.00  0.00              \nATOM    104  CA  ILE A 104       7.938 -12.616  13.288  1.00  0.00              \nATOM    105  CA  SER A 105       9.604 -10.338  16.052  1.00  0.00              \nATOM    106  CA  THR A 106       6.858  -7.640  16.513  1.00  0.00              \nATOM    107  CA  ARG A 107       8.678  -4.301  15.733  1.00  0.00              \nATOM    108  CA  THR A 108       6.841  -1.154  17.016  1.00  0.00              \nATOM    109  CA  TYR A 109       7.057   1.829  14.430  1.00  0.00              \nATOM    110  CA  LYS A 110       6.575   5.343  15.827  1.00  0.00              \nATOM    111  CA  GLN A 111       4.323   7.557  13.403  1.00  0.00              \nATOM    112  CA  GLN A 112       6.011  10.974  12.751  1.00  0.00              \nATOM    113  CA  ASP A 113       3.017  13.411  11.867  1.00  0.00              \nATOM    114  CA  TYR A 114       4.423  15.234   8.792  1.00  0.00              \nATOM    115  CA  SER A 115       1.027  17.118   8.868  1.00  0.00              \nATOM    116  CA  GLN A 116       3.057  20.250   9.029  1.00  0.00              \nATOM    117  CA  GLN A 117       5.793  20.365   6.336  1.00  0.00              \nATOM    118  CA  THR A 118       4.208  22.679   3.710  1.00  0.00              \nATOM    119  CA  LEU A 119       6.204  20.963   0.881  1.00  0.00              \nATOM    120  CA  LYS A 120       6.992  24.414  -0.804  1.00  0.00              \nATOM    121  CA  ILE A 121       5.743  23.360  -4.444  1.00  0.00              \nATOM    122  CA  GLU A 122       8.396  25.098  -6.565  1.00  0.00              \nATOM    123  CA  ASN A 123       5.935  25.351  -9.530  1.00  0.00              \nATOM    124  CA  GLY A 124       8.774  24.040 -11.748  1.00  0.00              \nATOM    125  CA  ARG A 125       7.406  24.884 -15.267  1.00  0.00              \nATOM    126  CA  HIS A 126       6.734  21.619 -17.092  1.00  0.00              \nATOM    127  CA  SER A 127       9.568  21.687 -19.628  1.00  0.00              \nATOM    128  CA  GLU A 128       8.773  18.481 -21.462  1.00  0.00              \nATOM    129  CA  ALA A 129      12.438  17.308 -21.695  1.00  0.00              \nATOM    130  CA  GLY A 130      12.540  17.095 -25.492  1.00  0.00              \nATOM    131  CA  ALA A 131      11.896  13.829 -27.211  1.00  0.00              \nATOM    132  CA  GLY A 132      15.402  13.881 -28.641  1.00  0.00              \nATOM    133  CA  PRO A 133      14.996  13.196 -32.422  1.00  0.00              \nATOM    134  CA  ALA A 134      14.727   9.481 -33.406  1.00  0.00              \nATOM    135  CA  THR A 135      17.711   9.240 -35.796  1.00  0.00              \nATOM    136  CA  SER A 136      16.286   7.110 -38.723  1.00  0.00              \nATOM    137  CA  PRO A 137      18.636   4.194 -39.600  1.00  0.00              \nATOM    138  CA  SER A 138      20.612   4.730 -42.869  1.00  0.00              \nEND   ","type":"file","addRepresentation":{"type":["cartoon"],"values":[{"color":"#FF8000"}]},"setRock":false,"toggleRock":false,"setSpin":false,"setScale":1,"setRotation":[],"setPosition":[],"toggleSpin":false,"zoomMove":[]},{"file_ext":"pdb","data":"ATOM      1  CA  ALA A   1      -4.862   6.399  12.652  1.00  0.00              \nATOM      2  CA  SER A   2      -4.171   2.570  12.077  1.00  0.00              \nATOM      3  CA  LEU A   3      -5.349   1.178   8.655  1.00  0.00              \nATOM      4  CA  PHE A   4      -6.959  -2.275   9.040  1.00  0.00              \nATOM      5  CA  ILE A   5      -7.410  -3.939   5.668  1.00  0.00              \nATOM      6  CA  LEU A   6      -9.955  -6.746   6.410  1.00  0.00              \nATOM      7  CA  ILE A   7     -10.021  -9.009   3.359  1.00  0.00              \nATOM      8  CA  GLY A   8     -13.431 -10.733   4.119  1.00  0.00              \nATOM      9  CA  PRO A   9     -14.278 -14.002   2.197  1.00  0.00              \nATOM     10  CA  LYS A  10     -16.482 -11.955  -0.056  1.00  0.00              \nATOM     11  CA  ALA A  11     -13.404  -9.977  -1.262  1.00  0.00              \nATOM     12  CA  LYS A  12     -11.850 -13.351  -2.221  1.00  0.00              \nATOM     13  CA  ARG A  13     -14.333 -13.663  -5.068  1.00  0.00              \nATOM     14  CA  THR A  14     -14.198 -10.194  -6.400  1.00  0.00              \nATOM     15  CA  ALA A  15     -10.452  -9.911  -5.915  1.00  0.00              \nATOM     16  CA  SER A  16      -9.700 -12.988  -8.050  1.00  0.00              \nATOM     17  CA  GLN A  17     -11.118 -11.101 -10.974  1.00  0.00              \nATOM     18  CA  ASN A  18      -9.713  -7.652 -10.465  1.00  0.00              \nATOM     19  CA  LEU A  19      -6.252  -8.310  -9.154  1.00  0.00              \nATOM     20  CA  SER A  20      -5.250  -9.835 -12.520  1.00  0.00              \nATOM     21  CA  HIS A  21      -3.446  -6.842 -13.716  1.00  0.00              \nATOM     22  CA  PHE A  22      -0.291  -5.539 -12.205  1.00  0.00              \nATOM     23  CA  MET A  23       1.378  -4.114 -15.302  1.00  0.00              \nATOM     24  CA  PHE A  24       5.023  -3.165 -14.529  1.00  0.00              \nATOM     25  CA  ARG A  25       5.634  -0.690 -17.300  1.00  0.00              \nATOM     26  CA  ASP A  26       9.374  -0.719 -17.071  1.00  0.00              \nATOM     27  CA  LYS A  27      10.276   1.517 -20.289  1.00  0.00              \nATOM     28  CA  ARG A  28      13.235  -0.688 -20.886  1.00  0.00              \nATOM     29  CA  VAL A  29      11.766  -4.244 -20.796  1.00  0.00              \nATOM     30  CA  ASN A  30       7.981  -5.405 -21.244  1.00  0.00              \nATOM     31  CA  TYR A  31       7.662  -7.939 -18.395  1.00  0.00              \nATOM     32  CA  SER A  32       3.949  -8.930 -18.610  1.00  0.00              \nATOM     33  CA  SER A  33       4.316 -11.392 -15.765  1.00  0.00              \nATOM     34  CA  ARG A  34       0.780 -12.861 -15.170  1.00  0.00              \nATOM     35  CA  TYR A  35       2.026 -14.063 -11.681  1.00  0.00              \nATOM     36  CA  PHE A  36      -1.177 -15.398 -10.240  1.00  0.00              \nATOM     37  CA  LEU A  37      -2.302 -14.119  -6.771  1.00  0.00              \nATOM     38  CA  GLU A  38      -3.857 -17.413  -6.834  1.00  0.00              \nATOM     39  CA  ALA A  39      -0.802 -19.083  -5.538  1.00  0.00              \nATOM     40  CA  SER A  40      -1.075 -18.017  -1.903  1.00  0.00              \nATOM     41  CA  PRO A  41      -1.524 -14.352  -0.637  1.00  0.00              \nATOM     42  CA  CYS A  42       2.066 -15.073   0.634  1.00  0.00              \nATOM     43  CA  LEU A  43       3.820 -14.892  -2.696  1.00  0.00              \nATOM     44  CA  SER A  44       2.100 -11.697  -3.684  1.00  0.00              \nATOM     45  CA  LEU A  45       3.379  -9.658  -0.804  1.00  0.00              \nATOM     46  CA  MET A  46       6.927 -11.075  -0.870  1.00  0.00              \nATOM     47  CA  ALA A  47       6.867 -10.254  -4.524  1.00  0.00              \nATOM     48  CA  ILE A  48       5.791  -6.785  -3.695  1.00  0.00              \nATOM     49  CA  THR A  49       8.450  -6.183  -1.079  1.00  0.00              \nATOM     50  CA  HIS A  50      11.120  -8.009  -2.982  1.00  0.00              \nATOM     51  CA  TRP A  51      10.149  -6.229  -6.170  1.00  0.00              \nATOM     52  CA  PHE A  52       9.091  -2.788  -4.960  1.00  0.00              \nATOM     53  CA  PRO A  53      12.049  -1.391  -2.889  1.00  0.00              \nATOM     54  CA  LYS A  54      11.595   1.753  -5.079  1.00  0.00              \nATOM     55  CA  LEU A  55       9.664   3.277  -2.569  1.00  0.00              \nATOM     56  CA  LEU A  56      13.089   2.860  -0.829  1.00  0.00              \nATOM     57  CA  TYR A  57      15.846   5.305  -1.725  1.00  0.00              \nATOM     58  CA  GLU A  58      18.991   3.093  -2.080  1.00  0.00              \nATOM     59  CA  GLU A  59      22.449   4.678  -2.565  1.00  0.00              \nATOM     60  CA  ASP A  60      25.062   2.119  -3.397  1.00  0.00              \nATOM     61  CA  ALA A  61      28.647   2.474  -2.023  1.00  0.00              \nATOM     62  CA  GLU A  62      29.609   3.993  -5.353  1.00  0.00              \nATOM     63  CA  GLY A  63      26.937   6.670  -5.346  1.00  0.00              \nATOM     64  CA  HIS A  64      24.466   5.464  -8.046  1.00  0.00              \nATOM     65  CA  HIS A  65      20.683   6.271  -7.660  1.00  0.00              \nATOM     66  CA  TYR A  66      17.862   3.811  -8.458  1.00  0.00              \nATOM     67  CA  THR A  67      14.074   5.023  -8.495  1.00  0.00              \nATOM     68  CA  ALA A  68      11.204   2.456  -8.840  1.00  0.00              \nATOM     69  CA  TYR A  69       7.271   3.330  -9.482  1.00  0.00              \nATOM     70  CA  GLY A  70       4.861   0.641  -8.041  1.00  0.00              \nATOM     71  CA  ASN A  71       0.982   1.204  -8.575  1.00  0.00              \nATOM     72  CA  ILE A  72      -0.388   0.036  -5.117  1.00  0.00              \nATOM     73  CA  GLY A  73      -3.850  -0.804  -6.632  1.00  0.00              \nATOM     74  CA  THR A  74      -6.118  -0.773  -3.691  1.00  0.00              \nATOM     75  CA  LEU A  75      -6.170   2.593  -1.962  1.00  0.00              \nATOM     76  CA  ALA A  76      -9.653   2.055  -0.462  1.00  0.00              \nATOM     77  CA  LEU A  77     -12.088   3.423  -3.054  1.00  0.00              \nATOM     78  CA  THR A  78     -14.625   4.428  -0.480  1.00  0.00              \nATOM     79  CA  ASN A  79     -17.947   3.828  -2.381  1.00  0.00              \nATOM     80  CA  SER A  80     -17.757   7.532  -2.918  1.00  0.00              \nATOM     81  CA  GLY A  81     -14.737   7.705  -5.271  1.00  0.00              \nATOM     82  CA  THR A  82     -12.926  10.106  -2.903  1.00  0.00              \nATOM     83  CA  LEU A  83      -9.360   9.246  -1.744  1.00  0.00              \nATOM     84  CA  PRO A  84      -9.344  10.114   1.903  1.00  0.00              \nATOM     85  CA  LYS A  85      -7.146  13.196   2.358  1.00  0.00              \nATOM     86  CA  TYR A  86      -4.319  11.629   4.440  1.00  0.00              \nATOM     87  CA  SER A  87      -3.035  14.363   6.812  1.00  0.00              \nATOM     88  CA  GLN A  88       0.924  14.622   6.565  1.00  0.00              \nATOM     89  CA  SER A  89       1.527  12.010   9.246  1.00  0.00              \nATOM     90  CA  SER A  90      -0.161   8.707   8.659  1.00  0.00              \nATOM     91  CA  PHE A  91       1.875   5.643   9.775  1.00  0.00              \nATOM     92  CA  ILE A  92       0.888   2.669   7.707  1.00  0.00              \nATOM     93  CA  SER A  93       1.208  -0.281  10.066  1.00  0.00              \nATOM     94  CA  VAL A  94       1.267  -3.311   7.806  1.00  0.00              \nATOM     95  CA  GLN A  95       0.447  -6.228  10.084  1.00  0.00              \nATOM     96  CA  GLU A  96       2.005  -9.225   8.271  1.00  0.00              \nATOM     97  CA  ALA A  97      -0.405 -12.001   9.442  1.00  0.00              \nATOM     98  CA  GLY A  98       2.430 -14.536   9.894  1.00  0.00              \nATOM     99  CA  CYS A  99       1.932 -17.204   7.307  1.00  0.00              \nATOM    100  CA  GLN A 100       1.070 -20.197   9.517  1.00  0.00              \nATOM    101  CA  GLY A 101       1.064 -19.727  13.289  1.00  0.00              \nATOM    102  CA  SER A 102       4.577 -18.260  13.673  1.00  0.00              \nATOM    103  CA  ASP A 103       5.097 -14.830  15.241  1.00  0.00              \nATOM    104  CA  ILE A 104       3.500 -11.576  13.765  1.00  0.00              \nATOM    105  CA  SER A 105       6.656  -9.448  13.314  1.00  0.00              \nATOM    106  CA  THR A 106       5.340  -5.812  13.261  1.00  0.00              \nATOM    107  CA  ARG A 107       7.612  -3.806  10.965  1.00  0.00              \nATOM    108  CA  THR A 108       7.105  -0.032  11.317  1.00  0.00              \nATOM    109  CA  TYR A 109       7.939   1.865   8.090  1.00  0.00              \nATOM    110  CA  LYS A 110       8.788   5.561   8.405  1.00  0.00              \nATOM    111  CA  GLN A 111       7.173   7.435   5.431  1.00  0.00              \nATOM    112  CA  GLN A 112       9.778  10.264   4.550  1.00  0.00              \nATOM    113  CA  ASP A 113       7.794  13.597   3.805  1.00  0.00              \nATOM    114  CA  TYR A 114       8.384  14.369   0.168  1.00  0.00              \nATOM    115  CA  SER A 115       6.508  17.762   0.162  1.00  0.00              \nATOM    116  CA  GLN A 116       3.885  17.174  -2.585  1.00  0.00              \nATOM    117  CA  GLN A 117       5.711  17.350  -5.889  1.00  0.00              \nATOM    118  CA  THR A 118       2.498  17.706  -7.951  1.00  0.00              \nATOM    119  CA  LEU A 119       4.005  15.994 -11.012  1.00  0.00              \nATOM    120  CA  LYS A 120       1.816  17.671 -13.583  1.00  0.00              \nATOM    121  CA  ILE A 121       2.028  15.121 -16.535  1.00  0.00              \nATOM    122  CA  GLU A 122       1.119  17.123 -19.619  1.00  0.00              \nATOM    123  CA  ASN A 123       1.020  14.880 -22.694  1.00  0.00              \nATOM    124  CA  GLY A 124       3.803  12.409 -21.879  1.00  0.00              \nATOM    125  CA  ARG A 125       6.564  15.008 -21.430  1.00  0.00              \nATOM    126  CA  HIS A 126       8.263  15.260 -17.872  1.00  0.00              \nATOM    127  CA  SER A 127       8.677  18.911 -16.846  1.00  0.00              \nATOM    128  CA  GLU A 128      10.391  18.811 -13.459  1.00  0.00              \nATOM    129  CA  ALA A 129       8.818  22.029 -12.070  1.00  0.00              \nATOM    130  CA  GLY A 130      12.243  23.145 -10.836  1.00  0.00              \nATOM    131  CA  ALA A 131      12.033  23.111  -7.038  1.00  0.00              \nATOM    132  CA  GLY A 132      13.269  26.641  -7.208  1.00  0.00              \nATOM    133  CA  PRO A 133      15.061  27.324  -3.875  1.00  0.00              \nATOM    134  CA  ALA A 134      12.379  28.360  -1.341  1.00  0.00              \nATOM    135  CA  THR A 135      13.436  32.063  -1.057  1.00  0.00              \nATOM    136  CA  SER A 136      14.002  32.600   2.699  1.00  0.00              \nATOM    137  CA  PRO A 137      11.655  35.349   4.106  1.00  0.00              \nATOM    138  CA  SER A 138      13.562  38.603   5.211  1.00  0.00              \nEND   ","type":"file","addRepresentation":{"type":["cartoon"],"values":[{"color":"#FFFF00"}]},"setRock":false,"toggleRock":false,"setSpin":false,"setScale":1,"setRotation":[],"setPosition":[],"toggleSpin":false,"zoomMove":[]}],"superpose":[],"setQuality":"medium","setRock":false,"toggleRock":false,"setSpin":false,"toggleSpin":false,"setFocus":0,"stageParameters":{"backgroundColor":"white"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pdbs<span class="sc">$</span>b[<span class="dv">1</span>,], <span class="at">typ=</span><span class="st">"l"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">ylab=</span><span class="st">"pLDDT score"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pdbs<span class="sc">$</span>b[<span class="dv">2</span>,], <span class="at">typ =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pdbs<span class="sc">$</span>b[<span class="dv">3</span>,], <span class="at">typ =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"green"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pdbs<span class="sc">$</span>b[<span class="dv">4</span>,], <span class="at">typ =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pdbs<span class="sc">$</span>b[<span class="dv">5</span>,], <span class="at">typ =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Find-a-Gene_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File names for all PDB models</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pdb_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path=</span>pth,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">pattern=</span><span class="st">"*.pdb"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print our PDB file names</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">basename</span>(pdb_files)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "PersonalFindaGene_e9930_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb"
+[2] "PersonalFindaGene_e9930_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb"
+[3] "PersonalFindaGene_e9930_unrelaxed_rank_003_alphafold2_ptm_model_1_seed_000.pdb"
+[4] "PersonalFindaGene_e9930_unrelaxed_rank_004_alphafold2_ptm_model_4_seed_000.pdb"
+[5] "PersonalFindaGene_e9930_unrelaxed_rank_005_alphafold2_ptm_model_5_seed_000.pdb"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3d)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read all data from Models </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  and superpose/fit coords</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>pdbs <span class="ot">&lt;-</span> <span class="fu">pdbaln</span>(pdb_files, <span class="at">fit=</span><span class="cn">TRUE</span>, <span class="at">exefile=</span><span class="st">"msa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading PDB files:
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_003_alphafold2_ptm_model_1_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_004_alphafold2_ptm_model_4_seed_000.pdb
+PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_005_alphafold2_ptm_model_5_seed_000.pdb
+.....
+
+Extracting sequences
+
+pdb/seq: 1   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb 
+pdb/seq: 2   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_002_alphafold2_ptm_model_3_seed_000.pdb 
+pdb/seq: 3   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_003_alphafold2_ptm_model_1_seed_000.pdb 
+pdb/seq: 4   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_004_alphafold2_ptm_model_4_seed_000.pdb 
+pdb/seq: 5   name: PersonalFindaGene_e9930//PersonalFindaGene_e9930_unrelaxed_rank_005_alphafold2_ptm_model_5_seed_000.pdb </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rd <span class="ot">&lt;-</span> <span class="fu">rmsd</span>(pdbs, <span class="at">fit=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in rmsd(pdbs, fit = T): No indices provided, using the 138 non NA positions</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(rd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.000 20.166</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(rd) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"m"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(rd) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"m"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(rd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Find-a-Gene_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read a reference PDB structure</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pdb <span class="ot">&lt;-</span> <span class="fu">read.pdb</span>(<span class="st">"1hsg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Note: Accessing on-line PDB file</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
