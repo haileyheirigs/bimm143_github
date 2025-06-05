@@ -17,7 +17,7 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
  
 - 11 [Structural Bioinformatics, pt2. Focus on new AlphaFold2](https://github.com/haileyheirigs/bimm143_github/blob/main/class11/Class11Comparative%20Structure%20Analysis.md)
 
-- 13 [Transcriptomics and the analysis of RNA-Seq data]
+- 13 [Transcriptomics and the analysis of RNA-Seq data](https://github.com/haileyheirigs/bimm143_github/blob/main/class13/Class13.md)
 
 - 14 [RNA-Seq analysis mini-project]
 
