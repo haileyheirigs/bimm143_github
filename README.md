@@ -7,3 +7,6 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
 
 - 06 R functions
 
+- 07 Machine Learning 1
+
+- 08 Breast cancer mini project
