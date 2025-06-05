@@ -21,11 +21,11 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
 
 - 14 [RNA-Seq analysis mini-project](https://github.com/haileyheirigs/bimm143_github/blob/main/class14/class14.md)
 
-- 17 [Analyzing sequencing data in the cloud]
+- 17 Analyzing sequencing data in the cloud
 
 - 18 [Mini Project: Investigating Pertussis Resurgence](https://github.com/haileyheirigs/bimm143_github/blob/main/class18/class18.md)
 
-- 19 [Mini Project: Cancer Mutation Analysis]
+- 19 Mini Project: Cancer Mutation Analysis
 
 
 
