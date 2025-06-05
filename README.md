@@ -23,7 +23,7 @@ My classwork from [BIMM143 S25](https://bioboot.github.io/bimm143_S25/) at UC Sa
 
 - 17 [Analyzing sequencing data in the cloud]
 
-- 18 [Mini Project: Investigating Pertussis Resurgence]
+- 18 [Mini Project: Investigating Pertussis Resurgence](https://github.com/haileyheirigs/bimm143_github/blob/main/class18/class18.md)
 
 - 19 [Mini Project: Cancer Mutation Analysis]
 
